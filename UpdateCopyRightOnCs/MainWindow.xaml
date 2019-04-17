@@ -1,0 +1,31 @@
+﻿<Window x:Class="UpdateCopyRightOnCs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UpdateCopyRightOnCs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="643.555" MaxHeight="450" MaxWidth="643.555" MinHeight="450" MinWidth="643.555">
+    <Grid Margin="0,0,13,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Browse Cs file in Folder:" Margin="27,62,0,0" HorizontalAlignment="Left" Width="131" Height="17" VerticalAlignment="Top"></TextBlock>
+        <TextBox Name="FolderNameTextBox" HorizontalAlignment="Left" Height="23" Margin="27,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="468"/>
+        <Button Content="Browser" HorizontalAlignment="Left" Margin="500,84,0,0" VerticalAlignment="Top" Width="75" Click="Browser_Click"/>
+        <TextBlock Text="File(s):" Margin="27,130,0,0" HorizontalAlignment="Left" Width="47" Height="17" VerticalAlignment="Top"/>
+        <ListBox Name="FileListBox" HorizontalAlignment="Left" Height="250" Margin="27,152,0,0" VerticalAlignment="Top" Width="468"/>
+        <Button Content="Get Files" HorizontalAlignment="Left" Margin="500,152,0,0" VerticalAlignment="Top" Width="75" Click="GetFile_Click"/>
+        <TextBlock Name="NumberOfFilesTextBlock" Text="" Margin="79,130,0,0" HorizontalAlignment="Left" Width="48" Height="17" VerticalAlignment="Top"/>
+        <Button Content="Write CopyRight" HorizontalAlignment="Left" Margin="500,366,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="0.5,0.5" Height="24" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-8.126"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+    </Grid>
+</Window>
