@@ -70,15 +70,16 @@ namespace UpdateCopyRightOnCs
                                     $"* Author: rajen shrestha{Environment.NewLine}" +
                                     $"* Time: %DateTime%{Environment.NewLine}" +
                                     $"*/ " + Environment.NewLine;
-
+           
             foreach(var file in FileListBox.Items)
             {
+                var newText = copyRightsText;
                 var vsFile = file as CsFile;
-                copyRightsText = copyRightsText.Replace("%year%", vsFile.Year.ToString());
-                copyRightsText = copyRightsText.Replace("%DateTime%", vsFile.FileCreatedDate.Value.ToString());
+                newText = newText.Replace("%year%", vsFile.Year.ToString());
+                newText = newText.Replace("%DateTime%", vsFile.FileCreatedDate.Value.ToString());
                 var content = File.ReadAllText(vsFile.File);
 
-                var newContent = copyRightsText + content;
+                var newContent = newText + content;
 
                 File.WriteAllText(vsFile.File, newContent);
             }
@@ -160,6 +161,11 @@ namespace UpdateCopyRightOnCs
                     continue;
                 }
 
+                if (FileContainsCopyright(file))
+                {
+                    continue;
+                }
+
                 var csFile = new CsFile()
                 {
                     File = file,
@@ -186,6 +192,11 @@ namespace UpdateCopyRightOnCs
             });
 
             return exclude;
+        }
+
+        public bool FileContainsCopyright(string file)
+        {
+            return File.ReadAllText(file).Contains("Copyright");
         }
 
         public List<string> ExcludedFile
